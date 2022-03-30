@@ -3,8 +3,10 @@ import { Server } from 'socket.io'
 import Sockets from './sockets'
 import app from './app'
 import { PORT } from './config'
+import dbConnection from './db'
 
 const server = createServer(app)
+dbConnection()
 
 server.listen(PORT, () => console.log(`Server running on port ${PORT}`))
 

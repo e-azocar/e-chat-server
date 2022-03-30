@@ -1,7 +1,7 @@
 import express, { json } from 'express'
 import morgan from 'morgan'
 import cors from 'cors'
-import { join } from 'path'
+import userRoutes from './routes/user'
 
 const app = express()
 
@@ -9,8 +9,7 @@ app.use(morgan('dev'))
 app.use(json())
 app.use(cors())
 
-app.get('/', (req, res) => {
-  res.sendFile(join(__dirname, 'index.html'));
-})
+// routes
+app.use('/api/user/', userRoutes)
 
 export default app
